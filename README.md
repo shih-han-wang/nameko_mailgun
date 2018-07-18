@@ -9,6 +9,8 @@ This is a [nameko](https://nameko.readthedocs.org) service that sends an email v
 - [Usage](#usage)
 - [Test](#test)
 - [Technologies](#technologies)
+- [My approach](#my-approach)
+- [Improvement](#improvement)
 
 ## Setup
 
@@ -65,3 +67,17 @@ payment received: {
    - [requests](http://docs.python-requests.org/en/master/)
 - Email API Service:
    - [Mailgun](https://mailgun.com)
+
+## My Approach
+
+- As I have no experience with Python before this tech test, I spent a while understanding the provided code (`payments_service.py`) and the required dependencies and service (faker, nameko, mailgun, rabbitMQ).
+- I started with exploring how to monitor and handle the nameko (payments) event, and then exploring how to send email via mailgun.
+- After making the above two tasks work, I started to write the mailing service which would handle the payments event and send the email.
+
+## Improvement
+
+- I found it quite difficult to write the tests for this project.
+   - The only part I used TDD approach is the email message, which is written without any dependency or service.
+   - The test for sending email via mailgun is using my personal email to be recipient, which means every time running this test, I would receive the email. I was trying to find a way to mock it, but the mailgun service need the recipient to be authorised. Therefore I'd left it like this for now and will gain more knowledge about mocking the tests in this situation in the future.
+   - It took me a while to write the nameko's integration test, but I'm still not 100% sure if this is the best way to test it.
+- I prefer learning by doing, thus I didn't follow any Python tutorial or read through Python documentation before starting this project. Therefore I guess some code's syntax and structure might not be written precisely. I would like to spend some time in the future truly picking up Python as I found myself very interested in it after working on this test.
