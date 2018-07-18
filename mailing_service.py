@@ -1,7 +1,9 @@
 from nameko.events import event_handler
-
-from payments_service import PaymentService
 from mail_sending import send_email
+
+# This PaymentService will raise the error when send_email function being called
+# as the fake email address is not authorized recipient by mailgun
+from payments_service import PaymentService
 
 class MailingService:
     name = "mailing"

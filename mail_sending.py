@@ -19,4 +19,7 @@ def send_email(payload):
         'text': message(payload)
     })
 
-    return request
+    if request.status_code == requests.codes.ok:
+        return request
+    else:
+        print('Error: {0}'.format(request.raise_for_status()))
