@@ -53,7 +53,7 @@ payment received: {
 ## Technologies
 
 - Language: Python3.6
-(This project was initially approached with Python3.7, but had been found out that there is a bug in Eventlet when used on Python 3.7.)
+(This project was initially approached with Python3.7, but there is a bug in Eventlet when used on Python 3.7.)
 
 ![py3.7_eventlet_bug](/screenshot/py3.7_eventlet_bug.png)
 
@@ -70,14 +70,14 @@ payment received: {
 
 ## My Approach
 
-- As I have no experience with Python before this tech test, I spent a while understanding the provided code (`payments_service.py`) and the required dependencies and service (faker, nameko, mailgun, rabbitMQ).
-- I started with exploring how to monitor and handle the nameko (payments) event, and then exploring how to send email via mailgun.
-- After making the above two tasks work, I started to write the mailing service which would handle the payments event and send the email.
+- As I had no experience with Python prior to this tech test, I spent a while understanding the provided code (`payments_service.py`) and the required dependencies and service (faker, nameko, mailgun, rabbitMQ).
+- I started by exploring how to monitor and handle the nameko (payments) event and how to send email via mailgun.
+- After completing the two tasks above, I started to write the mailing service which would handle the payments event and send the email.
 
 ## Improvement
 
 - I found it quite difficult to write the tests for this project.
-   - The only part I used TDD approach is the email message, which is written without any dependency or service.
-   - The test for sending email via mailgun is using my personal email to be recipient, which means every time running this test, I would receive the email. I was trying to find a way to mock it, but the mailgun service need the recipient to be authorised. Therefore I'd left it like this for now and will gain more knowledge about mocking the tests in this situation in the future.
-   - It took me a while to write the nameko's integration test, but I'm still not 100% sure if this is the best way to test it.
-- I prefer learning by doing, thus I didn't follow any Python tutorial or read through Python documentation before starting this project. Therefore I guess some code's syntax and structure might not be written precisely. I would like to spend some time in the future truly picking up Python as I found myself very interested in it after working on this test.
+   - I only used a TDD approach when developing the email message, which is written without any dependency or service.
+   - The test for sending email via mailgun is using my personal email as the recipient, which means every time running this test I would receive the email. I attempted to find a way to use a mock email but the mailgun service need the recipient to be authorised. In the future I hope to gain more knowledge on how to mock the tests in this situation.
+   - It took me a while to write the nameko's integration test and but I'm still not 100% sure whether my approach was the best way to test it.
+- I prefer learning by doing, so I didn't spend a lot of time on Python tutorials or reading through Python documentation before starting this project. As a result some of the syntax and structure of the code could be improved or made more 'pythonic' as I gain more experience with the language. I plan to spend more time learning Python as I found myself very interested in it after working on this test.
