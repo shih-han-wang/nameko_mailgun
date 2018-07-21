@@ -8,6 +8,7 @@ faker = "*"
 nameko = "*"
 requests = "*"
 pytest = "*"
+pyyaml = "*"
 
 [dev-packages]
 
