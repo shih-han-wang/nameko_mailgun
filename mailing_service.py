@@ -1,14 +1,15 @@
 from nameko.events import event_handler
-from mail_sending import send_email
+from mailgun_webservice import MailgunWebservice
 
-# This PaymentService will raise the error when send_email function being called
-# as the fake email address is not authorized recipient by mailgun
 from payments_service import PaymentService
 
 class MailingService:
-    name = "mailing"
+    name = "mailgun"
+
+    webservice = MailgunWebservice()
 
     @event_handler("payments", "payment_received")
     def handle_event(self, payload):
-        print("payment received:", payload)
-        send_email(payload)
+        print("Payment received:", payload)
+        mailing = self.webservice.send_email(payload)
+        print("Mailgun status:", mailing.json()['message'])
